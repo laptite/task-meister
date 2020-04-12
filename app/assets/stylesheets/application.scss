@@ -58,6 +58,7 @@ a { color: darken(#e7e7e7, 70%); }
 }
 
 /* Item styles */
+.btn-light { background-color: #f7f7f9; }
 .index-wrapper { display: flex; flex-direction: row; }
 .container, .index-wrapper {
 	@media (min-width: 1200px) { width: 70%; margin: 0 auto; }
