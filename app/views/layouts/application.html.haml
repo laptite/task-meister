@@ -1,0 +1,25 @@
+!!!
+%html
+  %head
+    %title TaskMeister
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %nav.navbar.navbar-default
+      %div.container
+        %div.navbar-header
+          = link_to "TaskMeister", root_path, class: 'navbar-brand'
+        %ul.nav.navbar-nav.navbar-right
+          - if current_user.present?
+            %li= link_to "Sign Out", destroy_user_session_path, method: :delete
+          - else
+            %li= link_to "Login", new_user_session_path
+            %li= link_to "Sign Up", new_user_registration_path
+        - if user_signed_in?
+          = link_to "Create Item", new_item_path, class: 'navbar-text navbar-link'
+    %p.notice= notice
+    %p.alert= alert
+    %div.container
+      = yield
