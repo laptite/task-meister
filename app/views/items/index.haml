@@ -1,3 +1,6 @@
-- @items.each do |item|
-	%h2= link_to item.title, item_path(item)
-	%p=item.description
+- if user_signed_in?
+	- @items.each do |item|
+		%h2= link_to item.title, item_path(item)
+		%p=item.description
+- else
+	= render 'welcome_page'
